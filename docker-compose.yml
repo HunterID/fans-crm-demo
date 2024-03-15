@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - copygen_data:/var/lib/db
+    ports:
+      - '${MYSQL_PORT}:${MYSQL_PORT}'
+    restart: always
+volumes:
+  copygen_data:
